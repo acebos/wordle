@@ -10,23 +10,23 @@ This code is scraped meaning it still has the ability to work exactly the same a
 
 You can! You can even play offline.
 
-### Online
+## Online
 
 - [Visit here](https://fluteds.github.io/wordle)
 
-### Offline
+## Offline
 
-#### Method 1
+### Method 1
 
 - Download the repo as a zip folder
 - Unzip and run index.html however you choose
 
-#### Method 2 (Out of the Box)
+### Method 2 (Out of the Box)
 
 - Download wordle.html
 - Open wordle.html
 
-### Hashes
+## Hashes
 
   - Wayback Machine ID used: `20220131000124`
 - Current Wordle Hash (`.js` file used): `1a2dc4b0`
