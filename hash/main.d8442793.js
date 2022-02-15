@@ -401,13 +401,13 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
     var T = "object" == ("undefined" == typeof global ? "undefined" : s(global)) && global && global.Object === Object && global,
         I = "object" == ("undefined" == typeof self ? "undefined" : s(self)) && self && self.Object === Object && self,
         C = T || I || Function("return this")(),
-        M = C.Symbol,
-        O = Object.prototype,
-        R = O.hasOwnProperty,
-        $ = O.toString,
-        P = M ? M.toStringTag : void 0;
+        O = C.Symbol,
+        M = Object.prototype,
+        R = M.hasOwnProperty,
+        $ = M.toString,
+        P = O ? O.toStringTag : void 0;
     var N = Object.prototype.toString;
-    var H = M ? M.toStringTag : void 0;
+    var H = O ? O.toStringTag : void 0;
 
     function G(e) {
         return null == e ? void 0 === e ? "[object Undefined]" : "[object Null]" : H && H in Object(e) ? function (e) {
@@ -624,14 +624,14 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
         }()) ? Le : function (e) {
             return Ee(e) && Te.call(e, "callee") && !Ie.call(e, "callee")
         },
-        Me = Array.isArray;
+        Oe = Array.isArray;
 
-    function Oe(e) {
+    function Me(e) {
         return "number" == typeof e && e > -1 && e % 1 == 0 && e <= 9007199254740991
     }
 
     function Re(e) {
-        return null != e && Oe(e.length) && !B(e)
+        return null != e && Me(e.length) && !B(e)
     }
     var $e = "object" == (void 0 === e ? "undefined" : s(e)) && e && !e.nodeType && e,
         Pe = $e && "object" == ("undefined" == typeof module ? "undefined" : s(module)) && module && !module.nodeType && module,
@@ -661,7 +661,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
                 return e(s)
             }
         }(Ve) : function (e) {
-            return Ee(e) && Oe(e.length) && !!Ye[G(e)]
+            return Ee(e) && Me(e.length) && !!Ye[G(e)]
         };
 
     function Ze(e, s) {
@@ -682,7 +682,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
     var os = Object.prototype.hasOwnProperty;
 
     function rs(e, s) {
-        var a = Me(e),
+        var a = Oe(e),
             t = !a && Ce(e),
             o = !a && !t && He(e),
             r = !a && !t && !o && Qe(e),
@@ -736,10 +736,10 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
             var u, c = r ? r(i, l, a + "", e, s, n) : void 0,
                 p = void 0 === c;
             if (p) {
-                var m = Me(l),
+                var m = Oe(l),
                     h = !m && He(l),
                     y = !m && !h && Qe(l);
-                c = l, m || h || y ? Me(i) ? c = i : Ee(u = i) && Re(u) ? c = function (e, s) {
+                c = l, m || h || y ? Oe(i) ? c = i : Ee(u = i) && Re(u) ? c = function (e, s) {
                     var a = -1,
                         t = e.length;
                     for (s || (s = Array(t)); ++a < t;) s[a] = e[a];
@@ -869,7 +869,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
         }(vs(s, e))
     }
     var Ss = document.createElement("template");
-    Ss.innerHTML = '\n  <style>\n  .setting {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 1px solid var(--color-tone-4);\n    padding: 16px 0;\n  }\n\n  a, a:visited {\n    color: var(--color-tone-2);\n  }\n\n  .title {\n    font-size: 18px;\n  }\n  .text {\n    padding-right: 8px;\n  }\n  .description {\n    font-size: 12px;\n    color: var(--color-tone-2);\n  }\n\n  #hash {\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    padding: 16px;\n    color: var(--color-tone-4);\n    font-size: 10px;\n  }\n\n  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {\n    .setting {\n      padding: 16px;\n    }\n  }\n\n  </style>\n  <div class="sections">\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Hard Mode</div>\n          <div class="description">Any revealed hints must be used in subsequent guesses</div>\n        </div>\n        <div class="control">\n          <game-switch id="hard-mode" name="hard-mode"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Dark Theme</div>\n        </div>\n        <div class="control">\n          <game-switch id="dark-theme" name="dark-theme"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Color Blind Mode</div>\n          <div class="description">High contrast colors</div>\n        </div>\n        <div class="control">\n          <game-switch id="color-blind-theme" name="color-blind-theme"></game-switch>\n        </div>\n      </div>\n    </section>\n\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Feedback</div>\n        </div>\n        <div class="control">\n          <a href="mailto:wordle@powerlanguage.co.uk?subject=Feedback" title="wordle@powerlanguage.co.uk">Email</a>\n          |\n          <a href="https://twitter.com/intent/tweet?screen_name=powerlanguish" target="blank" title="@powerlanguish">Twitter</a>\n        </div>\n      </div>\n    </section>\n  </div>\n  \n  <div id="hash"></div>\n';
+    Ss.innerHTML = '\n  <style>\n  .setting {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 1px solid var(--color-tone-4);\n    padding: 16px 0;\n  }\n\n  a, a:visited {\n    color: var(--color-tone-2);\n  }\n\n  .title {\n    font-size: 18px;\n  }\n  .text {\n    padding-right: 8px;\n  }\n  .description {\n    font-size: 12px;\n    color: var(--color-tone-2);\n  }\n\n  #footnote {\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    padding: 16px;\n    color: var(--color-tone-2);\n    font-size: 12px;\n    text-align: right;\n  }\n\n  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {\n    .setting {\n      padding: 16px;\n    }\n  }\n\n  </style>\n  <div class="sections">\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Hard Mode</div>\n          <div class="description">Any revealed hints must be used in subsequent guesses</div>\n        </div>\n        <div class="control">\n          <game-switch id="hard-mode" name="hard-mode"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Dark Theme</div>\n        </div>\n        <div class="control">\n          <game-switch id="dark-theme" name="dark-theme"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Color Blind Mode</div>\n          <div class="description">High contrast colors</div>\n        </div>\n        <div class="control">\n          <game-switch id="color-blind-theme" name="color-blind-theme"></game-switch>\n        </div>\n      </div>\n    </section>\n\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Feedback</div>\n        </div>\n        <div class="control">\n          <a href="mailto:wordle@powerlanguage.co.uk?subject=Feedback" title="wordle@powerlanguage.co.uk">Email</a>\n          |\n          <a href="https://twitter.com/intent/tweet?screen_name=powerlanguish" target="blank" title="@powerlanguish">Twitter</a>\n        </div>\n      </div>\n    </section>\n  </div>\n  <div id="footnote">\n    <div id="puzzle-number"></div>\n    <div id="hash"></div>\n  <div>\n';
     var _s = function (e) {
         n(t, e);
         var s = h(t);
@@ -884,7 +884,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
             key: "connectedCallback",
             value: function () {
                 var e, s = this;
-                this.shadowRoot.appendChild(Ss.content.cloneNode(!0)), this.shadowRoot.querySelector("#hash").textContent = null === (e = window.wordle) || void 0 === e ? void 0 : e.hash, this.shadowRoot.addEventListener("game-switch-change", (function (e) {
+                this.shadowRoot.appendChild(Ss.content.cloneNode(!0)), this.shadowRoot.querySelector("#hash").textContent = null === (e = window.wordle) || void 0 === e ? void 0 : e.hash, this.shadowRoot.querySelector("#puzzle-number").textContent = "#".concat(this.gameApp.dayOffset), this.shadowRoot.addEventListener("game-switch-change", (function (e) {
                     e.stopPropagation();
                     var a = e.detail,
                         t = a.name,
@@ -950,7 +950,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
         correct: 3
     };
 
-    function Ms(e, s) {
+    function Os(e, s) {
         var a = {};
         return e.forEach((function (e, t) {
             if (s[t])
@@ -962,7 +962,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
                 }
         })), a
     }
-    var Os = new Date("2021-06-19T00:00:00");
+    var Ms = new Date("2021-06-19T00:00:00");
 
     function Rs(e, s) {
         var a = new Date(e),
@@ -971,22 +971,35 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
     }
 
     function $s(e) {
-        var s, a = Rs(Os, e);
+        var s, a = Ps(e);
         return s = a % Ls.length, Ls[s]
     }
-    var Ps, Ns = "abcdefghijklmnopqrstuvwxyz";
 
-    function Hs() {
+    function Ps(e) {
+        return Rs(Ms, e)
+    }
+    var Ns, Hs = "abcdefghijklmnopqrstuvwxyz";
+
+    function Gs() {
         dataLayer.push(arguments)
     }
-    window.dataLayer = window.dataLayer || [], Hs("js", new Date);
-    Hs("config", "G-2SSGMHY3NP", {
-        app_version: null === (Ps = window.wordle) || void 0 === Ps ? void 0 : Ps.hash,
+    window.dataLayer = window.dataLayer || [], Gs("js", new Date);
+    Gs("config", "G-2SSGMHY3NP", {
+        app_version: null === (Ns = window.wordle) || void 0 === Ns ? void 0 : Ns.hash,
         debug_mode: !1
     });
-    var Gs = "statistics",
-        Ds = "fail",
-        Bs = {
+    var Ds = [].concat(g(Hs.split("").slice(13)), g(Hs.split("").slice(0, 13)));
+
+    function Bs(e) {
+        for (var s = "", a = 0; a < e.length; a++) {
+            var t = Hs.indexOf(e[a]);
+            s += t >= 0 ? Ds[t] : "_"
+        }
+        return s
+    }
+    var Fs = "statistics",
+        Ws = "fail",
+        Ys = {
             currentStreak: 0,
             maxStreak: 0,
             guesses: r({
@@ -996,60 +1009,60 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
                 4: 0,
                 5: 0,
                 6: 0
-            }, Ds, 0),
+            }, Ws, 0),
             winPercentage: 0,
             gamesPlayed: 0,
             gamesWon: 0,
             averageGuesses: 0
         };
 
-    function Fs() {
-        var e = window.localStorage.getItem(Gs) || JSON.stringify(Bs);
+    function Us() {
+        var e = window.localStorage.getItem(Fs) || JSON.stringify(Ys);
         return JSON.parse(e)
     }
 
-    function Ws(e) {
+    function Js(e) {
         var s = e.isWin,
             a = e.isStreak,
             t = e.numGuesses,
-            o = Fs();
+            o = Us();
         s ? (o.guesses[t] += 1, a ? o.currentStreak += 1 : o.currentStreak = 1) : (o.currentStreak = 0, o.guesses.fail += 1), o.maxStreak = Math.max(o.currentStreak, o.maxStreak), o.gamesPlayed += 1, o.gamesWon += s ? 1 : 0, o.winPercentage = Math.round(o.gamesWon / o.gamesPlayed * 100), o.averageGuesses = Math.round(Object.entries(o.guesses).reduce((function (e, s) {
                 var a = y(s, 2),
                     t = a[0],
                     o = a[1];
-                return t !== Ds ? e += t * o : e
+                return t !== Ws ? e += t * o : e
             }), 0) / o.gamesWon),
             function (e) {
-                window.localStorage.setItem(Gs, JSON.stringify(e))
+                window.localStorage.setItem(Fs, JSON.stringify(e))
             }(o)
     }
-    var Ys = document.createElement("template");
-    Ys.innerHTML = "\n  <style>\n  .toaster {\n    position: absolute;\n    top: 10%;\n    left: 50%;\n    transform: translate(-50%, 0);\n    pointer-events: none;\n    width: fit-content;\n  }\n  #game-toaster {\n    z-index: ".concat(1e3, ";\n  }\n  #system-toaster {\n    z-index: ").concat(4e3, ';\n  }\n\n  #game {\n    width: 100%;\n    max-width: var(--game-max-width);\n    margin: 0 auto;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n  }\n  header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: var(--header-height);\n    color: var(--color-tone-1);\n    border-bottom: 1px solid var(--color-tone-4);\n  }\n  header .title {\n    font-weight: 700;\n    font-size: 36px;\n    letter-spacing: 0.2rem;\n    text-transform: uppercase;\n    text-align: center;\n  }\n\n  #board-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-grow: 1;\n    overflow: hidden;\n  }\n  #board {\n    display: grid;\n    grid-template-rows: repeat(6, 1fr);\n    grid-gap: 5px;\n    padding:10px;\n    box-sizing: border-box;\n  }\n  button.icon {\n    background: none;\n    border: none;\n    cursor: pointer;\n  }\n  #debug-tools {\n    position: absolute;\n    bottom: 0;\n  }\n\n  </style>\n  <game-theme-manager>\n    <div id="game">\n      <header>\n        <div class="menu">\n          <button id="help" class="icon">\n            <game-icon icon="help"></game-icon>\n          </button>\n        </div>\n        <div class="title">\n         WORDLE\n        </div>\n        <div class="menu">\n          <button id="settings" class="icon">\n            <game-icon icon="settings"></game-icon>\n          </button>\n        </div>\n      </header>\n        <div id="board-container">\n          <div id="board"></div>\n        </div>\n        <game-keyboard></game-keyboard>\n        <game-modal></game-modal>\n        <game-page></game-page>\n        <div class="toaster" id="game-toaster"></div>\n        <div class="toaster" id="system-toaster"></div>\n    </div>\n  </game-theme-manager>\n  <div id="debug-tools"></div>\n');
-    var Us = document.createElement("template");
-    Us.innerHTML = '\n<button id="reveal">reveal</button>\n<button id="shake">shake</button>\n<button id="bounce">bounce</button>\n<button id="toast">toast</button>\n<button id="modal">modal</button>\n';
-    var Js = "IN_PROGRESS",
-        Xs = "WIN",
-        Ks = "FAIL",
-        Vs = ["Genius", "Magnificent", "Impressive", "Splendid", "Great", "Nice"],
-        Qs = function (e) {
+    var Xs = document.createElement("template");
+    Xs.innerHTML = "\n  <style>\n  .toaster {\n    position: absolute;\n    top: 10%;\n    left: 50%;\n    transform: translate(-50%, 0);\n    pointer-events: none;\n    width: fit-content;\n  }\n  #game-toaster {\n    z-index: ".concat(1e3, ";\n  }\n  #system-toaster {\n    z-index: ").concat(4e3, ';\n  }\n\n  #game {\n    width: 100%;\n    max-width: var(--game-max-width);\n    margin: 0 auto;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n  }\n  header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: var(--header-height);\n    color: var(--color-tone-1);\n    border-bottom: 1px solid var(--color-tone-4);\n  }\n  header .title {\n    font-weight: 700;\n    font-size: 36px;\n    letter-spacing: 0.2rem;\n    text-transform: uppercase;\n    text-align: center;\n  }\n\n  #board-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-grow: 1;\n    overflow: hidden;\n  }\n  #board {\n    display: grid;\n    grid-template-rows: repeat(6, 1fr);\n    grid-gap: 5px;\n    padding:10px;\n    box-sizing: border-box;\n  }\n  button.icon {\n    background: none;\n    border: none;\n    cursor: pointer;\n  }\n  #debug-tools {\n    position: absolute;\n    bottom: 0;\n  }\n\n  </style>\n  <game-theme-manager>\n    <div id="game">\n      <header>\n        <div class="menu">\n          <button id="help" class="icon">\n            <game-icon icon="help"></game-icon>\n          </button>\n        </div>\n        <div class="title">\n         WORDLE\n        </div>\n        <div class="menu">\n          <button id="settings" class="icon">\n            <game-icon icon="settings"></game-icon>\n          </button>\n        </div>\n      </header>\n        <div id="board-container">\n          <div id="board"></div>\n        </div>\n        <game-keyboard></game-keyboard>\n        <game-modal></game-modal>\n        <game-page></game-page>\n        <div class="toaster" id="game-toaster"></div>\n        <div class="toaster" id="system-toaster"></div>\n    </div>\n  </game-theme-manager>\n  <div id="debug-tools"></div>\n');
+    var Ks = document.createElement("template");
+    Ks.innerHTML = '\n<button id="reveal">reveal</button>\n<button id="shake">shake</button>\n<button id="bounce">bounce</button>\n<button id="toast">toast</button>\n<button id="modal">modal</button>\n';
+    var Vs = "IN_PROGRESS",
+        Qs = "WIN",
+        Zs = "FAIL",
+        ea = ["Genius", "Magnificent", "Impressive", "Splendid", "Great", "Nice"],
+        sa = function (e) {
             n(t, e);
             var s = h(t);
 
             function t() {
                 var e;
-                a(this, t), r(p(e = s.call(this)), "tileIndex", 0), r(p(e), "rowIndex", 0), r(p(e), "solution", void 0), r(p(e), "boardState", void 0), r(p(e), "evaluations", void 0), r(p(e), "canInput", !0), r(p(e), "gameStatus", Js), r(p(e), "letterEvaluations", {}), r(p(e), "$board", void 0), r(p(e), "$keyboard", void 0), r(p(e), "$game", void 0), r(p(e), "today", void 0), r(p(e), "lastPlayedTs", void 0), r(p(e), "lastCompletedTs", void 0), r(p(e), "hardMode", void 0), e.attachShadow({
+                a(this, t), r(p(e = s.call(this)), "tileIndex", 0), r(p(e), "rowIndex", 0), r(p(e), "solution", void 0), r(p(e), "boardState", void 0), r(p(e), "evaluations", void 0), r(p(e), "canInput", !0), r(p(e), "gameStatus", Vs), r(p(e), "letterEvaluations", {}), r(p(e), "$board", void 0), r(p(e), "$keyboard", void 0), r(p(e), "$game", void 0), r(p(e), "today", void 0), r(p(e), "lastPlayedTs", void 0), r(p(e), "lastCompletedTs", void 0), r(p(e), "hardMode", void 0), r(p(e), "dayOffset", void 0), e.attachShadow({
                     mode: "open"
                 }), e.today = new Date;
                 var o = zs();
-                return e.lastPlayedTs = o.lastPlayedTs, !e.lastPlayedTs || Rs(new Date(e.lastPlayedTs), e.today) >= 1 ? (e.boardState = new Array(6).fill(""), e.evaluations = new Array(6).fill(null), e.solution = $s(e.today), e.lastCompletedTs = o.lastCompletedTs, e.hardMode = o.hardMode, e.restoringFromLocalStorage = !1, js({
+                return e.lastPlayedTs = o.lastPlayedTs, !e.lastPlayedTs || Rs(new Date(e.lastPlayedTs), e.today) >= 1 ? (e.boardState = new Array(6).fill(""), e.evaluations = new Array(6).fill(null), e.solution = $s(e.today), e.dayOffset = Ps(e.today), e.lastCompletedTs = o.lastCompletedTs, e.hardMode = o.hardMode, e.restoringFromLocalStorage = !1, js({
                     rowIndex: e.rowIndex,
                     boardState: e.boardState,
                     evaluations: e.evaluations,
                     solution: e.solution,
                     gameStatus: e.gameStatus
-                }), Hs("event", "level_start", {
-                    level_name: e.solution
-                })) : (e.boardState = o.boardState, e.evaluations = o.evaluations, e.rowIndex = o.rowIndex, e.solution = o.solution, e.letterEvaluations = Ms(e.boardState, e.evaluations), e.gameStatus = o.gameStatus, e.lastCompletedTs = o.lastCompletedTs, e.hardMode = o.hardMode, e.gameStatus !== Js && (e.canInput = !1), e.restoringFromLocalStorage = !0), e
+                }), Gs("event", "level_start", {
+                    level_name: Bs(e.solution)
+                })) : (e.boardState = o.boardState, e.evaluations = o.evaluations, e.rowIndex = o.rowIndex, e.solution = o.solution, e.dayOffset = Ps(e.today), e.letterEvaluations = Os(e.boardState, e.evaluations), e.gameStatus = o.gameStatus, e.lastCompletedTs = o.lastCompletedTs, e.hardMode = o.hardMode, e.gameStatus !== Vs && (e.canInput = !1), e.restoringFromLocalStorage = !0), e
             }
             return o(t, [{
                 key: "evaluateRow",
@@ -1100,19 +1113,19 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
                             }
                             return a
                         }(a, this.solution);
-                        this.evaluations[this.rowIndex] = n, this.letterEvaluations = Ms(this.boardState, this.evaluations), s.evaluation = this.evaluations[this.rowIndex], this.rowIndex += 1;
+                        this.evaluations[this.rowIndex] = n, this.letterEvaluations = Os(this.boardState, this.evaluations), s.evaluation = this.evaluations[this.rowIndex], this.rowIndex += 1;
                         var i = this.rowIndex >= 6,
                             l = n.every((function (e) {
                                 return "correct" === e
                             }));
-                        if (i || l) Ws({
+                        if (i || l) Js({
                             isWin: l,
                             isStreak: !!this.lastCompletedTs && 1 === Rs(new Date(this.lastCompletedTs), new Date),
                             numGuesses: this.rowIndex
                         }), js({
                             lastCompletedTs: Date.now()
-                        }), this.gameStatus = l ? Xs : Ks, Hs("event", "level_end", {
-                            level_name: this.solution,
+                        }), this.gameStatus = l ? Qs : Zs, Gs("event", "level_end", {
+                            level_name: Bs(this.solution),
                             num_guesses: this.rowIndex,
                             success: l
                         });
@@ -1129,12 +1142,12 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
             }, {
                 key: "addLetter",
                 value: function (e) {
-                    this.gameStatus === Js && (this.canInput && (this.tileIndex >= 5 || (this.boardState[this.rowIndex] += e, this.$board.querySelectorAll("game-row")[this.rowIndex].setAttribute("letters", this.boardState[this.rowIndex]), this.tileIndex += 1)))
+                    this.gameStatus === Vs && (this.canInput && (this.tileIndex >= 5 || (this.boardState[this.rowIndex] += e, this.$board.querySelectorAll("game-row")[this.rowIndex].setAttribute("letters", this.boardState[this.rowIndex]), this.tileIndex += 1)))
                 }
             }, {
                 key: "removeLetter",
                 value: function () {
-                    if (this.gameStatus === Js && this.canInput && !(this.tileIndex <= 0)) {
+                    if (this.gameStatus === Vs && this.canInput && !(this.tileIndex <= 0)) {
                         this.boardState[this.rowIndex] = this.boardState[this.rowIndex].slice(0, this.boardState[this.rowIndex].length - 1);
                         var e = this.$board.querySelectorAll("game-row")[this.rowIndex];
                         this.boardState[this.rowIndex] ? e.setAttribute("letters", this.boardState[this.rowIndex]) : e.removeAttribute("letters"), e.removeAttribute("invalid"), this.tileIndex -= 1
@@ -1143,7 +1156,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
             }, {
                 key: "submitGuess",
                 value: function () {
-                    if (this.gameStatus === Js && this.canInput) {
+                    if (this.gameStatus === Vs && this.canInput) {
                         if (5 !== this.tileIndex) return this.$board.querySelectorAll("game-row")[this.rowIndex].setAttribute("invalid", ""), void this.addToast("Not enough letters");
                         this.evaluateRow()
                     }
@@ -1180,20 +1193,20 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
                 key: "connectedCallback",
                 value: function () {
                     var e = this;
-                    this.shadowRoot.appendChild(Ys.content.cloneNode(!0)), this.$game = this.shadowRoot.querySelector("#game"), this.$board = this.shadowRoot.querySelector("#board"), this.$keyboard = this.shadowRoot.querySelector("game-keyboard"), this.sizeBoard(), this.lastPlayedTs || setTimeout((function () {
+                    this.shadowRoot.appendChild(Xs.content.cloneNode(!0)), this.$game = this.shadowRoot.querySelector("#game"), this.$board = this.shadowRoot.querySelector("#board"), this.$keyboard = this.shadowRoot.querySelector("game-keyboard"), this.sizeBoard(), this.lastPlayedTs || setTimeout((function () {
                         return e.showHelpModal()
-                    }), 1e3);
+                    }), 100);
                     for (var s = 0; s < 6; s++) {
                         var a = document.createElement("game-row");
                         a.setAttribute("letters", this.boardState[s]), a.setAttribute("length", 5), this.evaluations[s] && (a.evaluation = this.evaluations[s]), this.$board.appendChild(a)
                     }
                     this.$game.addEventListener("game-key-press", (function (s) {
                         var a = s.detail.key;
-                        "←" === a || "Backspace" === a ? e.removeLetter() : "↵" === a || "Enter" === a ? e.submitGuess() : Ns.includes(a.toLowerCase()) && e.addLetter(a.toLowerCase())
+                        "←" === a || "Backspace" === a ? e.removeLetter() : "↵" === a || "Enter" === a ? e.submitGuess() : Hs.includes(a.toLowerCase()) && e.addLetter(a.toLowerCase())
                     })), this.$game.addEventListener("game-last-tile-revealed-in-row", (function (s) {
                         e.$keyboard.letterEvaluations = e.letterEvaluations, e.rowIndex < 6 && (e.canInput = !0);
                         var a = e.$board.querySelectorAll("game-row")[e.rowIndex - 1];
-                        (s.path || s.composedPath && s.composedPath()).includes(a) && ([Xs, Ks].includes(e.gameStatus) && (e.restoringFromLocalStorage ? e.showStatsModal() : (e.gameStatus === Xs && (a.setAttribute("win", ""), e.addToast(Vs[e.rowIndex - 1], 2e3)), e.gameStatus === Ks && e.addToast(e.solution.toUpperCase(), 1 / 0), setTimeout((function () {
+                        (s.path || s.composedPath && s.composedPath()).includes(a) && ([Qs, Zs].includes(e.gameStatus) && (e.restoringFromLocalStorage ? e.showStatsModal() : (e.gameStatus === Qs && (a.setAttribute("win", ""), e.addToast(ea[e.rowIndex - 1], 2e3)), e.gameStatus === Zs && e.addToast(e.solution.toUpperCase(), 1 / 0), setTimeout((function () {
                             e.showStatsModal()
                         }), 2500))), e.restoringFromLocalStorage = !1)
                     })), this.shadowRoot.addEventListener("game-setting-change", (function (s) {
@@ -1212,7 +1225,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
                             t = document.createTextNode("Settings");
                         a.appendChild(t);
                         var o = document.createElement("game-settings");
-                        o.setAttribute("slot", "content"), a.appendChild(o), a.setAttribute("open", "")
+                        o.setAttribute("slot", "content"), o.gameApp = e, a.appendChild(o), a.setAttribute("open", "")
                     })), this.shadowRoot.getElementById("help").addEventListener("click", (function (s) {
                         var a = e.$game.querySelector("game-page"),
                             t = document.createTextNode("How to play");
@@ -1228,7 +1241,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
                 key: "debugTools",
                 value: function () {
                     var e = this;
-                    this.shadowRoot.getElementById("debug-tools").appendChild(Us.content.cloneNode(!0)), this.shadowRoot.getElementById("toast").addEventListener("click", (function (s) {
+                    this.shadowRoot.getElementById("debug-tools").appendChild(Ks.content.cloneNode(!0)), this.shadowRoot.getElementById("toast").addEventListener("click", (function (s) {
                         e.addToast("hello world")
                     })), this.shadowRoot.getElementById("modal").addEventListener("click", (function (s) {
                         var a = e.$game.querySelector("game-modal");
@@ -1244,10 +1257,10 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
                 }
             }]), t
         }(c(HTMLElement));
-    customElements.define("game-app", Qs);
-    var Zs = document.createElement("template");
-    Zs.innerHTML = "\n  <style>\n    .overlay {\n      display: none;\n      position: absolute;\n      width: 100%;\n      height: 100%;\n      top: 0;\n      left: 0;\n      justify-content: center;\n      align-items: center;\n      background-color: var(--opacity-50);\n      z-index: ".concat(3e3, ';\n    }\n\n    :host([open]) .overlay {\n      display: flex;\n    }\n\n    .content {\n      position: relative;\n      border-radius: 8px;\n      border: 1px solid var(--color-tone-6);\n      background-color: var(--modal-content-bg);\n      color: var(--color-tone-1);\n      box-shadow: 0 4px 23px 0 rgba(0, 0, 0, 0.2);\n      width: 90%;\n      max-height: 90%;\n      overflow-y: auto;\n      animation: SlideIn 200ms;\n      max-width: var(--game-max-width);\n      padding: 16px;\n      box-sizing: border-box;\n    }\n\n    .content.closing {\n      animation: SlideOut 200ms;\n    }\n\n    .close-icon {\n      width: 24px;\n      height: 24px;\n      position: absolute;\n      top: 16px;\n      right: 16px;\n    }\n\n    game-icon {\n      position: fixed;\n      user-select: none;\n      cursor: pointer;\n    }\n\n    @keyframes SlideIn {\n      0% {\n        transform: translateY(30px);\n        opacity: 0;\n      }\n      100% {\n        transform: translateY(0px);\n        opacity: 1;\n      }\n    }\n    @keyframes SlideOut {\n      0% {\n        transform: translateY(0px);\n        opacity: 1;\n      }\n      90% {\n        opacity: 0;\n      }\n      100% {\n        opacity: 0;\n        transform: translateY(60px);\n      }\n    }\n  </style>\n  <div class="overlay">\n    <div class="content">\n      <slot></slot>\n      <div class="close-icon">\n        <game-icon icon="close"></game-icon>\n      </div>\n    </div>\n  </div>\n');
-    var ea = function (e) {
+    customElements.define("game-app", sa);
+    var aa = document.createElement("template");
+    aa.innerHTML = "\n  <style>\n    .overlay {\n      display: none;\n      position: absolute;\n      width: 100%;\n      height: 100%;\n      top: 0;\n      left: 0;\n      justify-content: center;\n      align-items: center;\n      background-color: var(--opacity-50);\n      z-index: ".concat(3e3, ';\n    }\n\n    :host([open]) .overlay {\n      display: flex;\n    }\n\n    .content {\n      position: relative;\n      border-radius: 8px;\n      border: 1px solid var(--color-tone-6);\n      background-color: var(--modal-content-bg);\n      color: var(--color-tone-1);\n      box-shadow: 0 4px 23px 0 rgba(0, 0, 0, 0.2);\n      width: 90%;\n      max-height: 90%;\n      overflow-y: auto;\n      animation: SlideIn 200ms;\n      max-width: var(--game-max-width);\n      padding: 16px;\n      box-sizing: border-box;\n    }\n\n    .content.closing {\n      animation: SlideOut 200ms;\n    }\n\n    .close-icon {\n      width: 24px;\n      height: 24px;\n      position: absolute;\n      top: 16px;\n      right: 16px;\n    }\n\n    game-icon {\n      position: fixed;\n      user-select: none;\n      cursor: pointer;\n    }\n\n    @keyframes SlideIn {\n      0% {\n        transform: translateY(30px);\n        opacity: 0;\n      }\n      100% {\n        transform: translateY(0px);\n        opacity: 1;\n      }\n    }\n    @keyframes SlideOut {\n      0% {\n        transform: translateY(0px);\n        opacity: 1;\n      }\n      90% {\n        opacity: 0;\n      }\n      100% {\n        opacity: 0;\n        transform: translateY(60px);\n      }\n    }\n  </style>\n  <div class="overlay">\n    <div class="content">\n      <slot></slot>\n      <div class="close-icon">\n        <game-icon icon="close"></game-icon>\n      </div>\n    </div>\n  </div>\n');
+    var ta = function (e) {
         n(t, e);
         var s = h(t);
 
@@ -1261,7 +1274,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
             key: "connectedCallback",
             value: function () {
                 var e = this;
-                this.shadowRoot.appendChild(Zs.content.cloneNode(!0)), this.addEventListener("click", (function (s) {
+                this.shadowRoot.appendChild(aa.content.cloneNode(!0)), this.addEventListener("click", (function (s) {
                     e.shadowRoot.querySelector(".content").classList.add("closing")
                 })), this.shadowRoot.addEventListener("animationend", (function (s) {
                     "SlideOut" === s.animationName && (e.shadowRoot.querySelector(".content").classList.remove("closing"), e.removeChild(e.firstChild), e.removeAttribute("open"))
@@ -1269,19 +1282,19 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
             }
         }]), t
     }(c(HTMLElement));
-    customElements.define("game-modal", ea);
-    var sa = document.createElement("template");
-    sa.innerHTML = "\n  <style>\n  :host {\n    height: var(--keyboard-height);\n  }\n  #keyboard {\n    margin: 0 8px;\n    user-select: none;\n  }\n  \n  .row {\n    display: flex;\n    width: 100%;\n    margin: 0 auto 8px;\n    /* https://stackoverflow.com/questions/46167604/ios-html-disable-double-tap-to-zoom */\n    touch-action: manipulation;\n  }\n  \n  button {\n    font-family: inherit;\n    font-weight: bold;\n    border: 0;\n    padding: 0;\n    margin: 0 6px 0 0;\n    height: 58px;\n    border-radius: 4px;\n    cursor: pointer;\n    user-select: none;\n    background-color: var(--key-bg);\n    color: var(--key-text-color);\n    flex: 1;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    text-transform: uppercase;\n    -webkit-tap-highlight-color: rgba(0,0,0,0.3);\n  }\n\n  button:focus {\n    outline: none;\n  }\n\n  button.fade {\n    transition: background-color 0.1s ease, color 0.1s ease;\n  }\n  \n  button:last-of-type {\n    margin: 0;\n  }\n  \n  .half {\n    flex: 0.5;\n  }\n  \n  .one {\n    flex: 1;\n  }\n\n  .one-and-a-half {\n    flex: 1.5;\n    font-size: 12px;\n  }\n  \n  .two {\n    flex: 2;\n  }\n\n  button[data-state='correct'] {\n    background-color: var(--key-bg-correct);\n    color: var(--key-evaluated-text-color);\n  }\n\n  button[data-state='present'] {\n    background-color: var(--key-bg-present);\n    color: var(--key-evaluated-text-color);\n  }\n\n  button[data-state='absent'] {\n    background-color: var(--key-bg-absent);\n    color: var(--key-evaluated-text-color);\n  }\n\n  </style>\n  <div id=\"keyboard\"></div>\n";
-    var aa = document.createElement("template");
-    aa.innerHTML = "\n  <button>key</button>\n";
-    var ta = document.createElement("template");
-    ta.innerHTML = '\n  <div class="spacer"></div>\n';
-    var oa = [
+    customElements.define("game-modal", ta);
+    var oa = document.createElement("template");
+    oa.innerHTML = "\n  <style>\n  :host {\n    height: var(--keyboard-height);\n  }\n  #keyboard {\n    margin: 0 8px;\n    user-select: none;\n  }\n  \n  .row {\n    display: flex;\n    width: 100%;\n    margin: 0 auto 8px;\n    /* https://stackoverflow.com/questions/46167604/ios-html-disable-double-tap-to-zoom */\n    touch-action: manipulation;\n  }\n  \n  button {\n    font-family: inherit;\n    font-weight: bold;\n    border: 0;\n    padding: 0;\n    margin: 0 6px 0 0;\n    height: 58px;\n    border-radius: 4px;\n    cursor: pointer;\n    user-select: none;\n    background-color: var(--key-bg);\n    color: var(--key-text-color);\n    flex: 1;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    text-transform: uppercase;\n    -webkit-tap-highlight-color: rgba(0,0,0,0.3);\n  }\n\n  button:focus {\n    outline: none;\n  }\n\n  button.fade {\n    transition: background-color 0.1s ease, color 0.1s ease;\n  }\n  \n  button:last-of-type {\n    margin: 0;\n  }\n  \n  .half {\n    flex: 0.5;\n  }\n  \n  .one {\n    flex: 1;\n  }\n\n  .one-and-a-half {\n    flex: 1.5;\n    font-size: 12px;\n  }\n  \n  .two {\n    flex: 2;\n  }\n\n  button[data-state='correct'] {\n    background-color: var(--key-bg-correct);\n    color: var(--key-evaluated-text-color);\n  }\n\n  button[data-state='present'] {\n    background-color: var(--key-bg-present);\n    color: var(--key-evaluated-text-color);\n  }\n\n  button[data-state='absent'] {\n    background-color: var(--key-bg-absent);\n    color: var(--key-evaluated-text-color);\n  }\n\n  </style>\n  <div id=\"keyboard\"></div>\n";
+    var ra = document.createElement("template");
+    ra.innerHTML = "\n  <button>key</button>\n";
+    var na = document.createElement("template");
+    na.innerHTML = '\n  <div class="spacer"></div>\n';
+    var ia = [
             ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
             ["-", "a", "s", "d", "f", "g", "h", "j", "k", "l", "-"],
             ["↵", "z", "x", "c", "v", "b", "n", "m", "←"]
         ],
-        ra = function (e) {
+        la = function (e) {
             n(t, e);
             var s = h(t);
 
@@ -1311,7 +1324,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
                 key: "connectedCallback",
                 value: function () {
                     var e = this;
-                    this.shadowRoot.appendChild(sa.content.cloneNode(!0)), this.$keyboard = this.shadowRoot.getElementById("keyboard"), this.$keyboard.addEventListener("click", (function (s) {
+                    this.shadowRoot.appendChild(oa.content.cloneNode(!0)), this.$keyboard = this.shadowRoot.getElementById("keyboard"), this.$keyboard.addEventListener("click", (function (s) {
                         var a = s.target.closest("button");
                         a && e.$keyboard.contains(a) && e.dispatchKeyPressEvent(a.dataset.key)
                     })), window.addEventListener("keydown", (function (s) {
@@ -1319,22 +1332,22 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
                             var a = s.key,
                                 t = s.metaKey,
                                 o = s.ctrlKey;
-                            t || o || (Ns.includes(a.toLowerCase()) || "Backspace" === a || "Enter" === a) && e.dispatchKeyPressEvent(a)
+                            t || o || (Hs.includes(a.toLowerCase()) || "Backspace" === a || "Enter" === a) && e.dispatchKeyPressEvent(a)
                         }
                     })), this.$keyboard.addEventListener("transitionend", (function (s) {
                         var a = s.target.closest("button");
                         a && e.$keyboard.contains(a) && a.classList.remove("fade")
-                    })), oa.forEach((function (s) {
+                    })), ia.forEach((function (s) {
                         var a = document.createElement("div");
                         a.classList.add("row"), s.forEach((function (e) {
                             var s;
                             if (e >= "a" && e <= "z" || "←" === e || "↵" === e) {
-                                if ((s = aa.content.cloneNode(!0).firstElementChild).dataset.key = e, s.textContent = e, "←" === e) {
+                                if ((s = ra.content.cloneNode(!0).firstElementChild).dataset.key = e, s.textContent = e, "←" === e) {
                                     var t = document.createElement("game-icon");
                                     t.setAttribute("icon", "backspace"), s.textContent = "", s.appendChild(t), s.classList.add("one-and-a-half")
                                 }
                                 "↵" == e && (s.textContent = "enter", s.classList.add("one-and-a-half"))
-                            } else(s = ta.content.cloneNode(!0).firstElementChild).classList.add(1 === e.length ? "half" : "one");
+                            } else(s = na.content.cloneNode(!0).firstElementChild).classList.add(1 === e.length ? "half" : "one");
                             a.appendChild(s)
                         })), e.$keyboard.appendChild(a)
                     })), this._render()
@@ -1349,14 +1362,14 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
                 }
             }]), t
         }(c(HTMLElement));
-    customElements.define("game-keyboard", ra);
-    var na = document.createElement("template");
-    na.innerHTML = '\n  <style>\n    .container {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      padding: 16px 0; \n    }\n    h1 {\n      font-weight: 700;\n      font-size: 16px;\n      letter-spacing: 0.5px;\n      text-transform: uppercase;\n      text-align: center;\n      margin-bottom: 10px;\n    }\n  \n    #statistics {\n      display: flex;\n      margin-bottom: \n    }\n\n    .statistic-container {\n      flex: 1;\n    }\n\n    .statistic-container .statistic {\n      font-size: 36px;\n      font-weight: 400;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      letter-spacing: 0.05em;\n      font-variant-numeric: proportional-nums;\n    }\n\n    .statistic.timer {\n      font-variant-numeric: initial;\n    }\n\n    .statistic-container .label {\n      font-size: 12px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n    }\n\n    #guess-distribution {\n      width: 80%;\n    }\n\n    .graph-container {\n      width: 100%;\n      height: 20px;\n      display: flex;\n      align-items: center;\n      padding-bottom: 4px;\n      font-size: 14px;\n      line-height: 20px;\n    }\n\n    .graph-container .graph {\n      width: 100%;\n      height: 100%;\n      padding-left: 4px;\n    }\n\n    .graph-container .graph .graph-bar {\n      height: 100%;\n      /* Assume no wins */\n      width: 0%;\n      position: relative;\n      background-color: var(--color-absent);\n      display: flex;\n      justify-content: center;\n    }\n\n    .graph-container .graph .graph-bar.highlight {\n      background-color: var(--color-correct);\n    }\n\n    .graph-container .graph .graph-bar.align-right {\n      justify-content: flex-end;\n      padding-right: 8px;\n    }\n\n    .graph-container .graph .num-guesses {\n      font-weight: bold;\n      color: var(--tile-text-color);\n    }\n\n    #statistics,\n    #guess-distribution {\n      padding-bottom: 10px;\n    }\n  </style>\n\n  <div class="container">\n    <h1>Statistics</h1>\n    <div id="statistics"></div>\n    <h1>Guess Distribution</h1>\n    <div id="guess-distribution"></div>\n    <h1>Next WORDLE</h1>\n    <div id="timer">\n      <div class="statistic-container">\n        <div class="statistic timer">\n          <countdown-timer></countdown-timer>\n        </div>\n      </div>\n    </div>\n  </div>\n';
-    var ia = document.createElement("template");
-    ia.innerHTML = '\n  <div class="statistic-container">\n    <div class="statistic"></div>\n    <div class="label"></div>\n  </div>\n';
-    var la = document.createElement("template");
-    la.innerHTML = '\n    <div class="graph-container">\n      <div class="guess"></div>\n      <div class="graph">\n        <div class="graph-bar">\n          <div class="num-guesses">\n        </div>\n      </div>\n      </div>\n    </div>\n';
-    var da = {
+    customElements.define("game-keyboard", la);
+    var da = document.createElement("template");
+    da.innerHTML = '\n  <style>\n    .container {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      padding: 16px 0; \n    }\n    h1 {\n      font-weight: 700;\n      font-size: 16px;\n      letter-spacing: 0.5px;\n      text-transform: uppercase;\n      text-align: center;\n      margin-bottom: 10px;\n    }\n  \n    #statistics {\n      display: flex;\n      margin-bottom: \n    }\n\n    .statistic-container {\n      flex: 1;\n    }\n\n    .statistic-container .statistic {\n      font-size: 36px;\n      font-weight: 400;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      letter-spacing: 0.05em;\n      font-variant-numeric: proportional-nums;\n    }\n\n    .statistic.timer {\n      font-variant-numeric: initial;\n    }\n\n    .statistic-container .label {\n      font-size: 12px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n    }\n\n    #guess-distribution {\n      width: 80%;\n    }\n\n    .graph-container {\n      width: 100%;\n      height: 20px;\n      display: flex;\n      align-items: center;\n      padding-bottom: 4px;\n      font-size: 14px;\n      line-height: 20px;\n    }\n\n    .graph-container .graph {\n      width: 100%;\n      height: 100%;\n      padding-left: 4px;\n    }\n\n    .graph-container .graph .graph-bar {\n      height: 100%;\n      /* Assume no wins */\n      width: 0%;\n      position: relative;\n      background-color: var(--color-absent);\n      display: flex;\n      justify-content: center;\n    }\n\n    .graph-container .graph .graph-bar.highlight {\n      background-color: var(--color-correct);\n    }\n\n    .graph-container .graph .graph-bar.align-right {\n      justify-content: flex-end;\n      padding-right: 8px;\n    }\n\n    .graph-container .graph .num-guesses {\n      font-weight: bold;\n      color: var(--tile-text-color);\n    }\n\n    #statistics,\n    #guess-distribution {\n      padding-bottom: 10px;\n    }\n  </style>\n\n  <div class="container">\n    <h1>Statistics</h1>\n    <div id="statistics"></div>\n    <h1>Guess Distribution</h1>\n    <div id="guess-distribution"></div>\n    <h1>Next WORDLE</h1>\n    <div id="timer">\n      <div class="statistic-container">\n        <div class="statistic timer">\n          <countdown-timer></countdown-timer>\n        </div>\n      </div>\n    </div>\n  </div>\n';
+    var ua = document.createElement("template");
+    ua.innerHTML = '\n  <div class="statistic-container">\n    <div class="statistic"></div>\n    <div class="label"></div>\n  </div>\n';
+    var ca = document.createElement("template");
+    ca.innerHTML = '\n    <div class="graph-container">\n      <div class="guess"></div>\n      <div class="graph">\n        <div class="graph-bar">\n          <div class="num-guesses">\n        </div>\n      </div>\n      </div>\n    </div>\n';
+    var pa = {
             currentStreak: "Current Streak",
             maxStreak: "Max Streak",
             winPercentage: "Win %",
@@ -1364,7 +1377,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
             gamesWon: "Won",
             averageGuesses: "Av. Guesses"
         },
-        ua = function (e) {
+        ma = function (e) {
             n(t, e);
             var s = h(t);
 
@@ -1372,17 +1385,17 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
                 var e;
                 return a(this, t), r(p(e = s.call(this)), "stats", {}), e.attachShadow({
                     mode: "open"
-                }), e.stats = Fs(), e
+                }), e.stats = Us(), e
             }
             return o(t, [{
                 key: "connectedCallback",
                 value: function () {
                     var e = this;
-                    this.shadowRoot.appendChild(na.content.cloneNode(!0));
+                    this.shadowRoot.appendChild(da.content.cloneNode(!0));
                     for (var s = this.shadowRoot.getElementById("statistics"), a = this.shadowRoot.getElementById("guess-distribution"), t = Math.max.apply(Math, g(Object.values(this.stats.guesses))), o = 1; o < Object.keys(this.stats.guesses).length; o++) {
                         var r = o,
                             n = this.stats.guesses[o],
-                            i = la.content.cloneNode(!0),
+                            i = ca.content.cloneNode(!0),
                             l = Math.max(7, Math.round(n / t * 100));
                         i.querySelector(".guess").textContent = r;
                         var d = i.querySelector(".graph-bar");
@@ -1393,18 +1406,18 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
                         }
                         a.appendChild(i)
                     } ["gamesPlayed", "winPercentage", "currentStreak", "maxStreak"].forEach((function (a) {
-                        var t = da[a],
+                        var t = pa[a],
                             o = e.stats[a],
-                            r = ia.content.cloneNode(!0);
+                            r = ua.content.cloneNode(!0);
                         r.querySelector(".label").textContent = t, r.querySelector(".statistic").textContent = o, s.appendChild(r)
                     }))
                 }
             }]), t
         }(c(HTMLElement));
-    customElements.define("game-stats", ua);
-    var ca = document.createElement("template");
-    ca.innerHTML = '\n  <style>\n    :host {\n    }\n    .container {\n      display: flex;\n      justify-content: space-between;\n    }\n    .switch {\n      height: 20px;\n      width: 32px;\n      vertical-align: middle;\n      /* not quite right */\n      background: var(--color-tone-3);\n      border-radius: 999px;\n      display: block;\n      position: relative;\n    }\n    .knob {\n      display: block;\n      position: absolute;\n      left: 2px;\n      top: 2px;\n      height: calc(100% - 4px);\n      width: 50%;\n      border-radius: 8px;\n      background: var(--white);\n      transform: translateX(0);\n      transition: transform 0.3s;\n    }\n    :host([checked]) .switch {\n      background: var(--color-correct);\n    }\n    :host([checked]) .knob {\n      transform: translateX(calc(100% - 4px));\n    }\n    :host([disabled]) .switch {\n      opacity: 0.5;\n    }\n  </style>\n  <div class="container">\n    <label><slot></slot></label>\n    <div class="switch">\n      <span class="knob"></div>\n    </div>\n  </div>\n';
-    var pa = function (e) {
+    customElements.define("game-stats", ma);
+    var ha = document.createElement("template");
+    ha.innerHTML = '\n  <style>\n    :host {\n    }\n    .container {\n      display: flex;\n      justify-content: space-between;\n    }\n    .switch {\n      height: 20px;\n      width: 32px;\n      vertical-align: middle;\n      /* not quite right */\n      background: var(--color-tone-3);\n      border-radius: 999px;\n      display: block;\n      position: relative;\n    }\n    .knob {\n      display: block;\n      position: absolute;\n      left: 2px;\n      top: 2px;\n      height: calc(100% - 4px);\n      width: 50%;\n      border-radius: 8px;\n      background: var(--white);\n      transform: translateX(0);\n      transition: transform 0.3s;\n    }\n    :host([checked]) .switch {\n      background: var(--color-correct);\n    }\n    :host([checked]) .knob {\n      transform: translateX(calc(100% - 4px));\n    }\n    :host([disabled]) .switch {\n      opacity: 0.5;\n    }\n  </style>\n  <div class="container">\n    <label><slot></slot></label>\n    <div class="switch">\n      <span class="knob"></div>\n    </div>\n  </div>\n';
+    var ya = function (e) {
         n(t, e);
         var s = h(t);
 
@@ -1418,7 +1431,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
             key: "connectedCallback",
             value: function () {
                 var e = this;
-                this.shadowRoot.appendChild(ca.content.cloneNode(!0)), this.shadowRoot.querySelector(".container").addEventListener("click", (function (s) {
+                this.shadowRoot.appendChild(ha.content.cloneNode(!0)), this.shadowRoot.querySelector(".container").addEventListener("click", (function (s) {
                     s.stopPropagation(), e.hasAttribute("checked") ? e.removeAttribute("checked") : e.setAttribute("checked", ""), e.dispatchEvent(new CustomEvent("game-switch-change", {
                         bubbles: !0,
                         composed: !0,
@@ -1437,10 +1450,10 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
             }
         }]), t
     }(c(HTMLElement));
-    customElements.define("game-switch", pa);
-    var ma = document.createElement("template");
-    ma.innerHTML = '\n  <style>\n  .instructions {\n    font-size: 14px;\n    color: var(--color-tone-1)\n  }\n\n  .examples {\n    border-bottom: 1px solid var(--color-tone-4);\n    border-top: 1px solid var(--color-tone-4);\n  }\n\n  .example {\n    margin-top: 24px;\n    margin-bottom: 24px;\n  }\n\n  game-tile {\n    width: 40px;\n    height: 40px;\n  }\n\n  :host([page]) section {\n    padding: 16px;\n    padding-top: 0px;\n  }\n\n  </style>\n  <section>\n    <div class="instructions">\n      <p>Guess the <strong>WORDLE</strong> in 6 tries.</p>\n      <p>After each guess, the color of the tiles will change to show how close your guess was to the word.</p>\n      <div class="examples">\n        <div class="example">\n          <div class="row">\n            <game-tile letter="w" evaluation="correct" reveal></game-tile>\n            <game-tile letter="e"></game-tile>\n            <game-tile letter="a"></game-tile>\n            <game-tile letter="r"></game-tile>\n            <game-tile letter="y"></game-tile>\n          </div>\n          <p>The letter <strong>W</strong> is in the word and in the correct spot.</p>\n        </div>\n        <div class="example">\n          <div class="row">\n            <game-tile letter="p"></game-tile>\n            <game-tile letter="i"></game-tile>\n            <game-tile letter="l" evaluation="present" reveal></game-tile>\n            <game-tile letter="o"></game-tile>\n            <game-tile letter="t"></game-tile>\n          </div>\n          <p>The letter <strong>L</strong> is in the word but in the wrong spot.</p>\n        </div>\n        <div class="example">\n          <div class="row">\n            <game-tile letter="v"></game-tile>\n            <game-tile letter="a"></game-tile>\n            <game-tile letter="g"></game-tile>\n            <game-tile letter="u" evaluation="absent" reveal></game-tile>\n            <game-tile letter="e"></game-tile>\n          </div>\n          <p>The letter <strong>U</strong> is not in the word in any spot.</p>\n        </div>\n      </div>\n      <p><strong>A new WORDLE will be available each day!<strong></p>\n    </div>\n  </section>\n';
-    var ha = function (e) {
+    customElements.define("game-switch", ya);
+    var ga = document.createElement("template");
+    ga.innerHTML = '\n  <style>\n  .instructions {\n    font-size: 14px;\n    color: var(--color-tone-1)\n  }\n\n  .examples {\n    border-bottom: 1px solid var(--color-tone-4);\n    border-top: 1px solid var(--color-tone-4);\n  }\n\n  .example {\n    margin-top: 24px;\n    margin-bottom: 24px;\n  }\n\n  game-tile {\n    width: 40px;\n    height: 40px;\n  }\n\n  :host([page]) section {\n    padding: 16px;\n    padding-top: 0px;\n  }\n\n  </style>\n  <section>\n    <div class="instructions">\n      <p>Guess the <strong>WORDLE</strong> in 6 tries.</p>\n      <p>After each guess, the color of the tiles will change to show how close your guess was to the word.</p>\n      <div class="examples">\n        <div class="example">\n          <div class="row">\n            <game-tile letter="w" evaluation="correct" reveal></game-tile>\n            <game-tile letter="e"></game-tile>\n            <game-tile letter="a"></game-tile>\n            <game-tile letter="r"></game-tile>\n            <game-tile letter="y"></game-tile>\n          </div>\n          <p>The letter <strong>W</strong> is in the word and in the correct spot.</p>\n        </div>\n        <div class="example">\n          <div class="row">\n            <game-tile letter="p"></game-tile>\n            <game-tile letter="i"></game-tile>\n            <game-tile letter="l" evaluation="present" reveal></game-tile>\n            <game-tile letter="o"></game-tile>\n            <game-tile letter="t"></game-tile>\n          </div>\n          <p>The letter <strong>L</strong> is in the word but in the wrong spot.</p>\n        </div>\n        <div class="example">\n          <div class="row">\n            <game-tile letter="v"></game-tile>\n            <game-tile letter="a"></game-tile>\n            <game-tile letter="g"></game-tile>\n            <game-tile letter="u" evaluation="absent" reveal></game-tile>\n            <game-tile letter="e"></game-tile>\n          </div>\n          <p>The letter <strong>U</strong> is not in the word in any spot.</p>\n        </div>\n      </div>\n      <p><strong>A new WORDLE will be available each day!<strong></p>\n    </div>\n  </section>\n';
+    var ba = function (e) {
         n(t, e);
         var s = h(t);
 
@@ -1453,14 +1466,14 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
         return o(t, [{
             key: "connectedCallback",
             value: function () {
-                this.shadowRoot.appendChild(ma.content.cloneNode(!0))
+                this.shadowRoot.appendChild(ga.content.cloneNode(!0))
             }
         }]), t
     }(c(HTMLElement));
-    customElements.define("game-help", ha);
-    var ya = document.createElement("template");
-    ya.innerHTML = "\n  <style>\n    .overlay {\n      display: none;\n      position: absolute;\n      width: 100%;\n      height: 100%;\n      top: 0;\n      left: 0;\n      justify-content: center;\n      background-color: var(--color-background);\n      animation: SlideIn 100ms linear;\n      z-index: ".concat(2e3, ';\n    }\n\n    :host([open]) .overlay {\n      display: flex;\n    }\n\n    .content {\n      position: relative;\n      color: var(--color-tone-1);\n      padding: 0 32px;\n      max-width: var(--game-max-width);\n      width: 100%;\n      overflow-y: auto;\n      height: 100%;\n      display: flex;\n      flex-direction: column;\n    }\n\n    .content-container {\n      height: 100%;\n    }\n\n    .overlay.closing {\n      animation: SlideOut 150ms linear;\n    }\n\n    header {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      position: relative;\n    }\n\n    h1 {\n      font-weight: 700;\n      font-size: 16px;\n      letter-spacing: 0.5px;\n      text-transform: uppercase;\n      text-align: center;\n      margin-bottom: 10px;\n    }\n\n    game-icon {\n      position: absolute;\n      right: 0;\n      user-select: none;\n      cursor: pointer;\n    }\n\n    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {\n      .content {\n        max-width: 100%;\n        padding: 0;\n      }\n      game-icon {\n        padding: 0 16px;\n      }\n    }\n\n    @keyframes SlideIn {\n      0% {\n        transform: translateY(30px);\n        opacity: 0;\n      }\n      100% {\n        transform: translateY(0px);\n        opacity: 1;\n      }\n    }\n    @keyframes SlideOut {\n      0% {\n        transform: translateY(0px);\n        opacity: 1;\n      }\n      90% {\n        opacity: 0;\n      }\n      100% {\n        opacity: 0;\n        transform: translateY(60px);\n      }\n    }\n  </style>\n  <div class="overlay">\n    <div class="content">\n      <header>\n        <h1><slot></slot></h1>\n        <game-icon icon="close"></game-icon>\n      </header>\n      <div class="content-container">\n        <slot name="content"></slot>\n      </div>\n    </div>\n  </div>\n');
-    var ga = function (e) {
+    customElements.define("game-help", ba);
+    var fa = document.createElement("template");
+    fa.innerHTML = "\n  <style>\n    .overlay {\n      display: none;\n      position: absolute;\n      width: 100%;\n      height: 100%;\n      top: 0;\n      left: 0;\n      justify-content: center;\n      background-color: var(--color-background);\n      animation: SlideIn 100ms linear;\n      z-index: ".concat(2e3, ';\n    }\n\n    :host([open]) .overlay {\n      display: flex;\n    }\n\n    .content {\n      position: relative;\n      color: var(--color-tone-1);\n      padding: 0 32px;\n      max-width: var(--game-max-width);\n      width: 100%;\n      overflow-y: auto;\n      height: 100%;\n      display: flex;\n      flex-direction: column;\n    }\n\n    .content-container {\n      height: 100%;\n    }\n\n    .overlay.closing {\n      animation: SlideOut 150ms linear;\n    }\n\n    header {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      position: relative;\n    }\n\n    h1 {\n      font-weight: 700;\n      font-size: 16px;\n      letter-spacing: 0.5px;\n      text-transform: uppercase;\n      text-align: center;\n      margin-bottom: 10px;\n    }\n\n    game-icon {\n      position: absolute;\n      right: 0;\n      user-select: none;\n      cursor: pointer;\n    }\n\n    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {\n      .content {\n        max-width: 100%;\n        padding: 0;\n      }\n      game-icon {\n        padding: 0 16px;\n      }\n    }\n\n    @keyframes SlideIn {\n      0% {\n        transform: translateY(30px);\n        opacity: 0;\n      }\n      100% {\n        transform: translateY(0px);\n        opacity: 1;\n      }\n    }\n    @keyframes SlideOut {\n      0% {\n        transform: translateY(0px);\n        opacity: 1;\n      }\n      90% {\n        opacity: 0;\n      }\n      100% {\n        opacity: 0;\n        transform: translateY(60px);\n      }\n    }\n  </style>\n  <div class="overlay">\n    <div class="content">\n      <header>\n        <h1><slot></slot></h1>\n        <game-icon icon="close"></game-icon>\n      </header>\n      <div class="content-container">\n        <slot name="content"></slot>\n      </div>\n    </div>\n  </div>\n');
+    var ka = function (e) {
         n(t, e);
         var s = h(t);
 
@@ -1474,7 +1487,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
             key: "connectedCallback",
             value: function () {
                 var e = this;
-                this.shadowRoot.appendChild(ya.content.cloneNode(!0)), this.shadowRoot.querySelector("game-icon").addEventListener("click", (function (s) {
+                this.shadowRoot.appendChild(fa.content.cloneNode(!0)), this.shadowRoot.querySelector("game-icon").addEventListener("click", (function (s) {
                     e.shadowRoot.querySelector(".overlay").classList.add("closing")
                 })), this.shadowRoot.addEventListener("animationend", (function (s) {
                     "SlideOut" === s.animationName && (e.shadowRoot.querySelector(".overlay").classList.remove("closing"), Array.from(e.childNodes).forEach((function (s) {
@@ -1484,16 +1497,16 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
             }
         }]), t
     }(c(HTMLElement));
-    customElements.define("game-page", ga);
-    var ba = document.createElement("template");
-    ba.innerHTML = '\n  <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">\n    <path fill=var(--color-tone-3) />\n  </svg>\n';
-    var fa = {
+    customElements.define("game-page", ka);
+    var va = document.createElement("template");
+    va.innerHTML = '\n  <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">\n    <path fill=var(--color-tone-3) />\n  </svg>\n';
+    var wa = {
             help: "M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z",
             settings: "M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z",
             backspace: "M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H7.07L2.4 12l4.66-7H22v14zm-11.59-2L14 13.41 17.59 17 19 15.59 15.41 12 19 8.41 17.59 7 14 10.59 10.41 7 9 8.41 12.59 12 9 15.59z",
             close: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
         },
-        ka = function (e) {
+        xa = function (e) {
             n(t, e);
             var s = h(t);
 
@@ -1506,18 +1519,18 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
             return o(t, [{
                 key: "connectedCallback",
                 value: function () {
-                    this.shadowRoot.appendChild(ba.content.cloneNode(!0));
+                    this.shadowRoot.appendChild(va.content.cloneNode(!0));
                     var e = this.getAttribute("icon");
-                    this.shadowRoot.querySelector("path").setAttribute("d", fa[e]), "backspace" === e && this.shadowRoot.querySelector("path").setAttribute("fill", "var(--color-tone-1)")
+                    this.shadowRoot.querySelector("path").setAttribute("d", wa[e]), "backspace" === e && this.shadowRoot.querySelector("path").setAttribute("fill", "var(--color-tone-1)")
                 }
             }]), t
         }(c(HTMLElement));
-    customElements.define("game-icon", ka);
-    var va = document.createElement("template");
-    va.innerHTML = '\n  <div id="timer"></div>\n';
-    var wa = 6e4,
-        xa = 36e5,
-        za = function (e) {
+    customElements.define("game-icon", xa);
+    var za = document.createElement("template");
+    za.innerHTML = '\n  <div id="timer"></div>\n';
+    var ja = 6e4,
+        Sa = 36e5,
+        _a = function (e) {
             n(t, e);
             var s = h(t);
 
@@ -1539,9 +1552,9 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
                 value: function () {
                     var e = (new Date).getTime(),
                         s = Math.floor(this.targetEpochMS - e),
-                        a = Math.floor(s % 864e5 / xa),
-                        t = Math.floor(s % xa / wa),
-                        o = Math.floor(s % wa / 1e3),
+                        a = Math.floor(s % 864e5 / Sa),
+                        t = Math.floor(s % Sa / ja),
+                        o = Math.floor(s % ja / 1e3),
                         r = "".concat(this.padDigit(a), ":").concat(this.padDigit(t), ":").concat(this.padDigit(o));
                     this.$timer.textContent = r
                 }
@@ -1549,14 +1562,14 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
                 key: "connectedCallback",
                 value: function () {
                     var e = this;
-                    this.shadowRoot.appendChild(va.content.cloneNode(!0)), this.$timer = this.shadowRoot.querySelector("#timer"), this.intervalId = setInterval((function () {
+                    this.shadowRoot.appendChild(za.content.cloneNode(!0)), this.$timer = this.shadowRoot.querySelector("#timer"), this.intervalId = setInterval((function () {
                         e.updateTimer()
                     }), 200)
                 }
             }]), t
         }(c(HTMLElement));
-    return customElements.define("countdown-timer", za), e.CountdownTimer = za, e.GameApp = Qs, e.GameHelp = ha, e.GameIcon = ka, e.GameKeyboard = ra, e.GameModal = ea, e.GamePage = ga, e.GameRow = x, e.GameSettings = _s, e.GameStats = ua, e.GameSwitch = pa, e.GameThemeManager = _, e.GameTile = v, e.GameToast = Es, Object.defineProperty(e, "__esModule", {
+    return customElements.define("countdown-timer", _a), e.CountdownTimer = _a, e.GameApp = sa, e.GameHelp = ba, e.GameIcon = xa, e.GameKeyboard = la, e.GameModal = ta, e.GamePage = ka, e.GameRow = x, e.GameSettings = _s, e.GameStats = ma, e.GameSwitch = ya, e.GameThemeManager = _, e.GameTile = v, e.GameToast = Es, Object.defineProperty(e, "__esModule", {
         value: !0
     }), e
 }({});
-//# sourceMappingURL=main.1a2dc4b0.js.map
+//# sourceMappingURL=main.d8442793.js.map
