@@ -31,4 +31,3 @@ You can! You can even play offline.
 ## Hashes
 
   - Wayback Machine ID used: `20220131000124`
-- Current Wordle Hash (`.js` file used): `1a2dc4b0`
