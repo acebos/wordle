@@ -6,21 +6,21 @@ Scraped Wayback Machine Wordle files from before 12th Feb 2021, right before New
 
 ## How to Play
 
-## Online
+### Online
 
 - Head over to [the site](https://acebos.github.io/wordle/wordle.html)
 - Play like normal
 
-## Offline
+### Offline
 
-### Method 1
+#### Method 1
 
 The easier method.
 
 - Download `wordle.html`.
 - Open `wordle.html` in a browser.
 
-### Method 2
+#### Method 2
 
 - Download the repo as a zip folder.
 - Unzip and run `index.html` however you choose.
